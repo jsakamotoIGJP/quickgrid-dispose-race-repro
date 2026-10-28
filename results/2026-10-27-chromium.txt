@@ -1,0 +1,13 @@
+QuickGrid 10.0.14, net10.0, Interactive Server, Chromium (Playwright 1.63.0). The 404 is favicon.ico.
+
+===== chromium / 1. control: leave after init has replied
+page=Other page, tables in DOM=0, init called=1, stop called=1, QuickGrid listeners still on body=0
+
+===== chromium / 2. init race: leave while the init reply is in flight
+page=Other page, tables in DOM=0, init called=1, stop called=0, QuickGrid listeners still on body=3
+
+===== chromium / 3. init race repeated 3 times in one circuit
+page=Other page, tables in DOM=0, init called=3, stop called=0, QuickGrid listeners still on body=9
+
+===== chromium / 4. import race (fixed by #62840): leave while the module is loading
+page=Other page, tables in DOM=0, init called=0, stop called=0, QuickGrid listeners still on body=0

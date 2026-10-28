@@ -1,0 +1,14 @@
+@page "/grid"
+
+<h1 id="title">Grid page</h1>
+<QuickGrid Items="_people">
+    <PropertyColumn Property="p => p.Name" Sortable="true" />
+    <PropertyColumn Property="p => p.Age" />
+</QuickGrid>
+<a id="leave" href="other">Leave</a>
+
+@code {
+    private record Person(string Name, int Age);
+
+    private readonly IQueryable<Person> _people = new[] { new Person("Ann", 30), new Person("Bob", 40) }.AsQueryable();
+}
